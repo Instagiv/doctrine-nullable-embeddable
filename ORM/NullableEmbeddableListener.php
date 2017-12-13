@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Tarifhaus\Doctrine\ORM;
 
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
@@ -20,7 +18,11 @@ final class NullableEmbeddableListener
         $this->propertyAccessor = $propertyAccessor;
     }
 
-    public function addMapping(string $entity, string $propertyPath)
+    /**
+     * @param string $entity
+     * @param string $propertyPath
+     */
+    public function addMapping($entity, $propertyPath)
     {
         if (empty($this->propertyMap[$entity])) {
             $this->propertyMap[$entity] = [];
